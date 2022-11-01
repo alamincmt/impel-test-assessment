@@ -5,6 +5,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alamincmt.news.R;
 import com.alamincmt.news.adapters.ViewPagerAdapter;
+import com.alamincmt.news.network.RestClient;
+import com.alamincmt.news.utils.Utils;
 import com.google.android.material.tabs.TabLayout;
 
 import android.graphics.drawable.GradientDrawable;
@@ -19,11 +21,16 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     ViewPager viewPager;
     ViewPagerAdapter viewPagerAdapter;
 
+    private Utils utils;
+    private RestClient restClient;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.utils = new Utils(getApplicationContext());
+        this.restClient = new RestClient(getApplicationContext());
 
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tabL);
@@ -62,6 +69,13 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             }
         });
         //tabLayout.setupWithViewPager(viewPager);
+
+        restClient.getTopNews("us", "business");
+        if(utils.isNetworkAvailable()){
+            restClient.getTopNews("us", "business");
+        }else{
+            utils.showToast("Please connect to the internet and try again. ");
+        }
     }
 
     @Override
