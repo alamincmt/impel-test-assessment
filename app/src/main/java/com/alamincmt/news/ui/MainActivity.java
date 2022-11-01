@@ -3,30 +3,20 @@ package com.alamincmt.news.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.alamincmt.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
-import com.alamincmt.autoimageslider.IndicatorView.draw.controller.DrawController;
-import com.alamincmt.autoimageslider.SliderAnimations;
-import com.alamincmt.autoimageslider.SliderView;
 import com.alamincmt.news.R;
-import com.alamincmt.news.adapters.SliderAdapterExample;
 import com.alamincmt.news.adapters.ViewPagerAdapter;
-import com.alamincmt.news.model.SliderItem;
 import com.alamincmt.news.network.RestClient;
 import com.alamincmt.news.utils.Utils;
 import com.google.android.material.tabs.TabLayout;
 
-import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
+public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
     public TabLayout tabLayout;
     public ViewPager viewPager;
     public ViewPagerAdapter viewPagerAdapter;
@@ -34,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private RestClient restClient;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

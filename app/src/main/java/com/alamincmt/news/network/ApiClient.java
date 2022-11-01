@@ -1,7 +1,9 @@
 package com.alamincmt.news.network;
 
 import com.alamincmt.news.utils.Constants;
+
 import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -13,7 +15,7 @@ public class ApiClient {
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS);
 
-    public static Retrofit getClient(){
+    public static Retrofit getClient() {
         return new Retrofit.Builder()
                 .baseUrl(Constants.API_BASE_URL)
                 .client(httpClient.build())

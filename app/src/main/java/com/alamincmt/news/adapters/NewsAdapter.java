@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.alamincmt.news.listeners.ItemsDetailsClickListener;
+import com.alamincmt.news.listeners.ItemsClickListener;
 import com.alamincmt.news.R;
 import com.bumptech.glide.Glide;
 
@@ -19,10 +19,10 @@ import java.util.ArrayList;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private ArrayList<NewsModel> itemList = new ArrayList<>();
-    private ItemsDetailsClickListener itemsDetailsClickListener;
+    private ItemsClickListener itemsDetailsClickListener;
     private Context context;
 
-    public NewsAdapter(ArrayList<NewsModel> itemList, ItemsDetailsClickListener itemsDetailsClickListener) {
+    public NewsAdapter(ArrayList<NewsModel> itemList, ItemsClickListener itemsDetailsClickListener) {
         this.itemList = itemList;
         this.itemsDetailsClickListener = itemsDetailsClickListener;
     }
@@ -31,7 +31,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         this.context = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news, parent, false);
         return new ViewHolder(view);
     }
 
@@ -53,6 +53,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         private TextView title;
         private TextView readMore;
         private TextView description;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imgV);

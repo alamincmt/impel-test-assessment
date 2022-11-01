@@ -12,7 +12,9 @@ import com.alamincmt.news.R;
 
 public class BookmarkFragment extends Fragment {
 
-    public BookmarkFragment() {}
+    public BookmarkFragment() {
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

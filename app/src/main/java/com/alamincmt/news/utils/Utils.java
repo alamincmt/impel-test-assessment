@@ -23,8 +23,8 @@ public class Utils {
     private Context context;
     private boolean isNetworkConnected;
 
-    public static Utils getInstance(Context context){
-        if(instance == null){
+    public static Utils getInstance(Context context) {
+        if (instance == null) {
             instance = new Utils(context);
         }
 
@@ -44,7 +44,7 @@ public class Utils {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public String convertDate(String date){
+    public String convertDate(String date) {
         String convertedDate = date;
         SimpleDateFormat targetSDF = new SimpleDateFormat("MM-dd-yyyy");
         try {

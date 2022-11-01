@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
 import com.alamincmt.news.ui.fragment.BookmarkFragment;
 import com.alamincmt.news.ui.fragment.NewsFragment;
 
@@ -20,7 +21,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-            return new NewsFragment();
+                return new NewsFragment();
             case 1:
                 return new BookmarkFragment();
             default:

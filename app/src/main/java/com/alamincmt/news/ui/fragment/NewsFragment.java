@@ -20,9 +20,8 @@ import com.alamincmt.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.alamincmt.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.alamincmt.autoimageslider.SliderAnimations;
 import com.alamincmt.autoimageslider.SliderView;
-import com.alamincmt.news.adapters.SliderAdapterExample;
-import com.alamincmt.news.adapters.ViewPagerAdapter;
-import com.alamincmt.news.listeners.ItemsDetailsClickListener;
+import com.alamincmt.news.adapters.SliderAdapter;
+import com.alamincmt.news.listeners.ItemsClickListener;
 import com.alamincmt.news.adapters.NewsAdapter;
 import com.alamincmt.news.adapters.NewsModel;
 import com.alamincmt.news.R;
@@ -40,7 +39,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class NewsFragment extends Fragment implements ItemsDetailsClickListener, RestClient.ResponseListener {
+public class NewsFragment extends Fragment implements ItemsClickListener, RestClient.ResponseListener {
 
     public NewsFragment() {
     }
@@ -57,7 +56,7 @@ public class NewsFragment extends Fragment implements ItemsDetailsClickListener,
     Utils utils;
 
     SliderView sliderView;
-    private SliderAdapterExample adapter;
+    private SliderAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,7 +71,7 @@ public class NewsFragment extends Fragment implements ItemsDetailsClickListener,
         ivShareNews = view.findViewById(R.id.ivShareNews);
         tvSliderTitle = view.findViewById(R.id.tvSliderTitle);
         tvSliderTitle.setText("News org.");
-        newsAdapter = new NewsAdapter(itemList,this);
+        newsAdapter = new NewsAdapter(itemList, this);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         rv.setAdapter(newsAdapter);
 
@@ -82,7 +81,7 @@ public class NewsFragment extends Fragment implements ItemsDetailsClickListener,
 
 
         sliderView = view.findViewById(R.id.imageSlider);
-        adapter = new SliderAdapterExample(getActivity());
+        adapter = new SliderAdapter(getActivity());
         sliderView.setSliderAdapter(adapter);
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
@@ -96,9 +95,9 @@ public class NewsFragment extends Fragment implements ItemsDetailsClickListener,
         sliderView.setCurrentPageListener(new SliderView.OnSliderPageListener() {
             @Override
             public void onSliderPageChanged(int position) {
-                if(itemList.get(sliderView.getCurrentPagePosition()).getAuthor() == null || itemList.get(sliderView.getCurrentPagePosition()).getAuthor().equals("")){
+                if (itemList.get(sliderView.getCurrentPagePosition()).getAuthor() == null || itemList.get(sliderView.getCurrentPagePosition()).getAuthor().equals("")) {
                     tvSliderTitle.setText("News org.");
-                }else{
+                } else {
                     tvSliderTitle.setText(itemList.get(sliderView.getCurrentPagePosition()).getAuthor());
                 }
             }
@@ -137,14 +136,14 @@ public class NewsFragment extends Fragment implements ItemsDetailsClickListener,
 
     @Override
     public void onResponse(@NonNull Call<NewsResponse> call, @NonNull Response<NewsResponse> responseElement) {
-        if (responseElement.body() != null){
+        if (responseElement.body() != null) {
             Log.d("RESPONSE", "onResponse : Status => " + responseElement.body().getStatus());
             Log.d("RESPONSE", "onResponse : TotalResults => " + responseElement.body().getTotalResults());
             for (Article articles : responseElement.body().getArticles()) {
                 itemList.add(new NewsModel(articles.getUrlToImage(), articles.getTitle(), articles.getDescription(), articles.getSource().getName(), articles.getAuthor(), articles.getPublishedAt(), articles.getSource().getId() + ""));
             }
         }
-        if (responseElement.isSuccessful()){
+        if (responseElement.isSuccessful()) {
             newsAdapter.notifyDataSetChanged();
             renewItems(itemList);
         }
@@ -174,7 +173,7 @@ public class NewsFragment extends Fragment implements ItemsDetailsClickListener,
         // what to do with it.
         share.putExtra(Intent.EXTRA_SUBJECT, title);
         share.putExtra(Intent.EXTRA_TEMPLATE, "This is template... ");
-        share.putExtra(Intent.EXTRA_TEXT, "News Sharing...\n"+shareUrl);
+        share.putExtra(Intent.EXTRA_TEXT, "News Sharing...\n" + shareUrl);
 
         startActivity(Intent.createChooser(share, "Share"));
 

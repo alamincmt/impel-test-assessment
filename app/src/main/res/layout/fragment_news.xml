@@ -118,7 +118,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            tools:listitem="@layout/rv_item"
+            tools:listitem="@layout/item_news"
             android:layout_alignParentRight="true"
             android:layout_alignParentLeft="true" />
 

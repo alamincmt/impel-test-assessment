@@ -47,10 +47,10 @@ public class DetailsActivity extends AppCompatActivity {
         source.setText(getIntent().getExtras().getString("sourceName"));
         title.setText(getIntent().getExtras().getString("title"));
 
-        if(getIntent().getExtras().getString("author") == null || getIntent().getExtras().getString("author").equals("null")){
+        if (getIntent().getExtras().getString("author") == null || getIntent().getExtras().getString("author").equals("null")) {
             authorAndPublishedDate.setText(Utils.getInstance(getApplicationContext()).convertDate(getIntent().getExtras().getString("publishedDate")));
-        }else{
-            authorAndPublishedDate.setText(getIntent().getExtras().getString("author")+", "+Utils.getInstance(getApplicationContext()).convertDate(getIntent().getExtras().getString("publishedDate")));
+        } else {
+            authorAndPublishedDate.setText(getIntent().getExtras().getString("author") + ", " + Utils.getInstance(getApplicationContext()).convertDate(getIntent().getExtras().getString("publishedDate")));
         }
 
         description.setText(getIntent().getExtras().getString("description"));

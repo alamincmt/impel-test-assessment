@@ -1,6 +1,25 @@
 package com.alamincmt.news.adapters;
 
 public class NewsModel {
+
+    private String imgUri;
+    private String title;
+    private String description;
+    private String sourceName;
+    private String author;
+    private String publishDate;
+    private String authorID;
+
+    public NewsModel(String imgUri, String title, String description, String sourceName, String author, String publishDate, String authorID) {
+        this.imgUri = imgUri;
+        this.title = title;
+        this.description = description;
+        this.sourceName = sourceName;
+        this.author = author;
+        this.publishDate = publishDate;
+        this.authorID = authorID;
+    }
+
     public String getImgUri() {
         return imgUri;
     }
@@ -54,26 +73,6 @@ public class NewsModel {
     }
 
     public void setAuthorID(String authorID) {
-        this.authorID = authorID;
-    }
-
-    String imgUri;
-    String title;
-    String description;
-    String sourceName;
-    String author;
-    String publishDate;
-    String authorID;
-
-
-
-    public NewsModel(String imgUri, String title, String description, String sourceName, String author, String publishDate, String authorID) {
-        this.imgUri = imgUri;
-        this.title = title;
-        this.description = description;
-        this.sourceName = sourceName;
-        this.author = author;
-        this.publishDate = publishDate;
         this.authorID = authorID;
     }
 

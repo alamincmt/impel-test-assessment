@@ -16,13 +16,13 @@ import com.alamincmt.news.model.SliderItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SliderAdapterExample extends
-        SliderViewAdapter<SliderAdapterExample.SliderAdapterVH> {
+public class SliderAdapter extends
+        SliderViewAdapter<SliderAdapter.SliderAdapterVH> {
 
     private Context context;
     private List<SliderItem> mSliderItems = new ArrayList<>();
 
-    public SliderAdapterExample(Context context) {
+    public SliderAdapter(Context context) {
         this.context = context;
     }
 
