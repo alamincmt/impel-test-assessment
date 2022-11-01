@@ -1,7 +1,7 @@
 # Test Assessment for Impel Solutions Ltd. 
 
 # How to install APK on device
-Step1: Download APK from this link - [![Apk]([https://img.shields.io/badge/download-apk-yellowgreen.svg)]([https://raw.githubusercontent.com/android-arsenal/apk31/master/7693/app.apk](https://drive.google.com/file/d/1-8FE-ndDIRovpNjMNsa2F4lSfZ7qANgs/view?usp=sharing)](https://drive.google.com/file/d/1-8FE-ndDIRovpNjMNsa2F4lSfZ7qANgs/view?usp=sharing))
+Step1: Download APK from this link - https://drive.google.com/file/d/1-8FE-ndDIRovpNjMNsa2F4lSfZ7qANgs/view?usp=sharing
 
 Step2: Install APK. 
 
