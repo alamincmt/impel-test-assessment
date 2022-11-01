@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/News.iml" filepath="$PROJECT_DIR$/.idea/modules/News.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/News.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/News.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/News.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/News.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/News.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/News.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/News.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/News.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/impel-test-assessment.iml" filepath="$PROJECT_DIR$/.idea/modules/impel-test-assessment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/impel-test-assessment.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/impel-test-assessment.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/impel-test-assessment.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/impel-test-assessment.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/impel-test-assessment.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/impel-test-assessment.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/impel-test-assessment.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/impel-test-assessment.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autoimageslider/impel-test-assessment.autoimageslider.iml" filepath="$PROJECT_DIR$/.idea/modules/autoimageslider/impel-test-assessment.autoimageslider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autoimageslider/impel-test-assessment.autoimageslider.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/autoimageslider/impel-test-assessment.autoimageslider.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autoimageslider/impel-test-assessment.autoimageslider.main.iml" filepath="$PROJECT_DIR$/.idea/modules/autoimageslider/impel-test-assessment.autoimageslider.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autoimageslider/impel-test-assessment.autoimageslider.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/autoimageslider/impel-test-assessment.autoimageslider.unitTest.iml" />
     </modules>
   </component>
 </project>

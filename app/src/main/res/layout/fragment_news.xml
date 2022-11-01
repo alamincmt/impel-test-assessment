@@ -28,7 +28,37 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="190dp" />
 
-    <ImageView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_slider_mainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="0dp">
+
+        <com.alamincmt.autoimageslider.SliderView
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:sliderAnimationDuration="600"
+            app:sliderAutoCycleDirection="back_and_forth"
+            app:sliderIndicatorAnimationDuration="600"
+            app:sliderIndicatorEnabled="true"
+            app:sliderIndicatorGravity="center_horizontal|bottom"
+            app:sliderIndicatorMargin="15dp"
+            app:sliderIndicatorOrientation="horizontal"
+            app:sliderIndicatorPadding="3dp"
+            app:sliderIndicatorRadius="2dp"
+            app:sliderIndicatorSelectedColor="#5A5A5A"
+            app:sliderIndicatorUnselectedColor="#FFF"
+            app:sliderScrollTimeInSec="1" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!--<ImageView
         android:id="@+id/imgV"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -38,13 +68,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"/>-->
 
     <RelativeLayout
         android:id="@+id/rl_rv_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:cardCornerRadius="10dp"
+        android:translationZ="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -64,9 +95,11 @@
             android:layout_marginBottom="10dp"
             android:text="@string/latest_news"
             android:textAllCaps="true"
+            android:translationZ="5dp"
             android:textColor="@color/blue"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true" />
 
         <View
             android:id="@+id/view_horizontal"
@@ -85,13 +118,17 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            tools:listitem="@layout/rv_item"/>
+            tools:listitem="@layout/rv_item"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true" />
 
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/tvSliderTitle"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:translationZ="5dp"
         android:background="@color/blue"
         android:text="Best selling book"
         android:textColor="@color/white"
@@ -100,11 +137,14 @@
         android:textStyle="bold"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideline3" />
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        android:layout_marginLeft="10dp" />
 
     <ImageView
+        android:id="@+id/ivShareNews"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:translationZ="5dp"
         android:src="@drawable/ic_baseline_share_24"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"

@@ -4,7 +4,7 @@
     package="com.alamincmt.news">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.News"
         tools:targetApi="33">
+        <activity
+            android:name=".ui.DetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

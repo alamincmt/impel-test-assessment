@@ -11,15 +11,17 @@
         android:id="@+id/tabL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/tab_background_color"
         app:tabIndicatorColor="@color/white"
         app:tabIndicatorFullWidth="false"
         app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/black"
         app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"/>
+        app:tabTextColor="@color/white" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
@@ -28,5 +30,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" />
+
 </RelativeLayout>

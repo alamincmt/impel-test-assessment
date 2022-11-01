@@ -1,13 +1,13 @@
 package com.alamincmt.news.network;
 
 import android.content.Context;
-import android.content.DialogInterface;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+
+import com.alamincmt.news.model.NewsResponse;
 import com.alamincmt.news.utils.Constants;
 import com.alamincmt.news.utils.Utils;
-import com.google.gson.JsonElement;
-import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 import retrofit2.Call;
@@ -28,8 +28,8 @@ public class RestClient {
     }
 
     public interface ResponseListener {
-        void onResponse(@NonNull Call<JsonElement> call, @NonNull Response<JsonElement> responseElement);
-        void onFailure(@NonNull Call<JsonElement>call, @NonNull Throwable t);
+        void onResponse(@NonNull Call<NewsResponse> call, @NonNull Response<NewsResponse> responseElement);
+        void onFailure(@NonNull Call<NewsResponse>call, @NonNull Throwable t);
     }
 
     public void setResponseListener(ResponseListener responseListener) {
@@ -43,8 +43,22 @@ public class RestClient {
         params.put("category", category);
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<JsonElement> call = apiService.getTopNews(params);
-        call.enqueue(new Callback<JsonElement>() {
+        Call<NewsResponse> call = apiService.getTopNews(country, category, Constants.API_KEY);
+        call.enqueue(new Callback<NewsResponse>() {
+            @Override
+            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+                if (responseListener != null) responseListener.onResponse(call, response);
+                Utils.getInstance(context).printLog("NewsData", response.toString());
+            }
+
+            @Override
+            public void onFailure(Call<NewsResponse> call, Throwable throwable) {
+                if (responseListener != null) responseListener.onFailure(call, throwable);
+                showFailedMessage("Error Occurred!", throwable.getMessage());
+            }
+        });
+
+        /*call.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(@NonNull Call<JsonElement> call, @NonNull Response<JsonElement> responseElement) {
                 try {
@@ -63,7 +77,7 @@ public class RestClient {
             public void onFailure(@NonNull Call<JsonElement>call, @NonNull Throwable t) {
                 showFailedMessage("Error Occurred!", t.getMessage());
             }
-        });
+        });*/
     }
 
     public void showFailedMessage(String title, String message){
@@ -71,12 +85,7 @@ public class RestClient {
             AlertDialog.Builder builder =new AlertDialog.Builder(context);
             builder.setTitle(title);
             builder.setMessage(message);
-            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
+            builder.setNegativeButton("OK", (dialog, which) -> dialog.dismiss());
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }catch (Exception e){

@@ -1,13 +1,20 @@
 package com.alamincmt.news.utils;
 
 import android.content.Context;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.TimeZone;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+
 import com.alamincmt.news.BuildConfig;
+
+import java.text.ParseException;
 
 
 public class Utils {
@@ -34,6 +41,19 @@ public class Utils {
         if (BuildConfig.DEBUG) {
             Log.d(logKey, logValue);
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String convertDate(String date){
+        String convertedDate = date;
+        SimpleDateFormat targetSDF = new SimpleDateFormat("MM-dd-yyyy");
+        try {
+            convertedDate = targetSDF.parse(date).toString();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return convertedDate;
     }
 
     public void showToast(String message) {

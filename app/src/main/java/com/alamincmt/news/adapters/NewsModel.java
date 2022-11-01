@@ -1,13 +1,11 @@
 package com.alamincmt.news.adapters;
 
-import android.net.Uri;
-
 public class NewsModel {
-    public int getImgUri() {
+    public String getImgUri() {
         return imgUri;
     }
 
-    public void setImgUri(int imgUri) {
+    public void setImgUri(String imgUri) {
         this.imgUri = imgUri;
     }
 
@@ -19,22 +17,64 @@ public class NewsModel {
         this.title = title;
     }
 
-    public String getSubTitle() {
-        return subTitle;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    int imgUri;
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public void setSourceName(String sourceName) {
+        this.sourceName = sourceName;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public String getAuthorID() {
+        return authorID;
+    }
+
+    public void setAuthorID(String authorID) {
+        this.authorID = authorID;
+    }
+
+    String imgUri;
     String title;
-    String subTitle;
+    String description;
+    String sourceName;
+    String author;
+    String publishDate;
+    String authorID;
 
-    public NewsModel(int imgUri, String title, String subTitle) {
+
+
+    public NewsModel(String imgUri, String title, String description, String sourceName, String author, String publishDate, String authorID) {
         this.imgUri = imgUri;
         this.title = title;
-        this.subTitle = subTitle;
+        this.description = description;
+        this.sourceName = sourceName;
+        this.author = author;
+        this.publishDate = publishDate;
+        this.authorID = authorID;
     }
 
 }
